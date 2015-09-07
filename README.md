@@ -8,6 +8,12 @@ $ git clone git@github.com:SkyzohKeyx/tox-wiki.git && cd tox-wiki
 $ cp config-sample.json config.json
 $ python manage.py makemigrations
 $ python manage.py migrate
+```
+
+### Run the app
+Make sure you're in the correct folder (project root) then:
+
+```console
 $ python manage.py runserver
 ```
 
