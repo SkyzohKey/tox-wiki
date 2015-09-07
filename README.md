@@ -5,6 +5,7 @@ To install and run this little software you **must** type the following lines in
 
 ```console
 $ git clone git@github.com:SkyzohKeyx/tox-wiki.git && cd tox-wiki
+$ cp config-sample.json config.json
 $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py runserver
