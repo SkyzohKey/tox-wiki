@@ -4,12 +4,15 @@
 * @license WTFPLv2
 **/
 
+/* Alignements */
 .text-left { text-align: left !important; }
 .text-center { text-align: center !important; }
 .text-right { text-align: right !important; }
 .text-justify { text-align: justify !important; }
 
+/* Text styles */
 .bold { font-weight: bold !important; }
 .italic { font-style: italic !important; }
 .underline { text-decoration: underline !important; }
 .strike { text-decoration: line-through !important; }
+.shadow { text-shadow: rgba(0, 0, 0, 0.43) 0 0 3px !important; }
