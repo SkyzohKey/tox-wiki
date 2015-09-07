@@ -4,19 +4,53 @@
 {% endblock %}
 
 {% block content %}
-  {% if category != '.' %}
-    <a href="{% url 'doc:index' %}">Home</a> -
-  {% endif %}
-  Categories
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-md-3">
+      <div class="list-group">
+        {% for data in base_categories %}
+          {% if data.name != '_static' and data.type == 'dir' %}
+            <a class="list-group-item" href="{% url 'doc:categories' category=data.name %}">{{ data.name }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-9">
+      <ol class="breadcrumb">
+        <li><a href="{% url 'doc:index' %}">Home</a></li>
+        <li class="active"><a href="{% url 'doc:categories' category=category %}">{{ category }}</a></li>
+      </ol>
 
-  {% autoescape off %}
-    {% for data in Categories %}
-      <p>
-        <a href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a> -
-        Size: {{ data.size }} kb
-      </p>
-    {% endfor %}
-  {% endautoescape %}
-
-  <a href="{{ git_repo }}">View the repository on GitHub</a> - <a href="{{ api_url }}">View the API call</a>
+      <div class="jumbotron">
+        {% if category == '.' %}
+          <h1 class="text-center">Welcome on the Tox Wiki !</h1>
+          <p class="text-justify">
+            Tox is a secure and distributed <span class="strike">Skype</span> replacement.
+          </p>
+          <p class="text-justify">
+            At its heart it's a client dealing with our core library communicating
+            on our own protocol. All communications are encrypted using the peer
+            audited <code>NaCl</code> crypto library and this encryption can not be
+            turned off.
+          </p>
+          <p class="text-justify">
+            Tox is powered by a distributed network which uses <code>P2P</code>
+            connections for chats between people, and unlike other
+            <span class="strike">Skype</span> replacements, no federated servers,
+            centralized servers, or supernodes are used.
+          </p>
+        {% else %}
+          {% for data in Categories %}
+            {% if data.name != '_static' %}
+              <p>
+                <a href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a> -
+                Size: {{ data.size }} kb
+              </p>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

@@ -1,0 +1,15 @@
+/**
+* ccsLays
+* @author SkyzohKey.
+* @license WTFPLv2
+**/
+
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+.bold { font-weight: bold !important; }
+.italic { font-style: italic !important; }
+.underline { text-decoration: underline !important; }
+.strike { text-decoration: line-through !important; }

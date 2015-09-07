@@ -12,26 +12,46 @@
 
     <title>{% block title %}Wiki{% endblock %}</title>
 
-    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/style.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/cssLays.css' %}" rel="stylesheet">
   </head>
-
   <body>
     <div class="container">
       <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="{% url 'doc:index' %}">Home</a></li>
-            <li role="presentation"><a href="{% url 'doc:categories' '.' %}">Categories</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{% url 'doc:index' %}">
+                <img alt="Brand" width="20" height="20" src="{% static 'images/logo.png' %}">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'doc:categories' '.' %}">Categories</a></li>
+                <li><a href="{% url 'doc:categories' '.' %}">Categories</a></li>
+              </ul>
+
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="ie. DhtNodes, Clients, Dev...">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+              </form>
+
+              <p class="navbar-text navbar-right">Last commit <a href="#" class="navbar-link">c2d57f</a></p>
+            </div>
+          </div>
         </nav>
-        <h3 class="text-muted">ToxWiki</h3>
       </div>
 
-      <div class="jumbotron">
-        {% block content %}{% endblock %}
-      </div>
+      {% block content %}{% endblock %}
 
       <footer class="footer">
         <p>&copy; ToxWiki 2015</p>

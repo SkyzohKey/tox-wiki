@@ -4,12 +4,16 @@
 {% endblock %}
 
 {% block content %}
-  <a href="{% url 'doc:index' %}">Home</a> -
-  <a href="{% url 'doc:categories' category=category %}">Back to {{ category }}</a> -
-  Content of {{ git_path }} - {{git_size}} kb
+  <ol class="breadcrumb">
+    <li><a href="{% url 'doc:index' %}">Home</a></li>
+    <li><a href="{% url 'doc:categories' category=category %}">{{ category }}</a></li>
+    <li class="active">{{ name }} <small>({{git_size}} kb)</small></li>
+  </ol>
 
-  {% autoescape off %}{{ git_content|linebreaks }}{% endautoescape %}
+  <div class="jumbotron">
+    {% autoescape off %}{{ git_content }}{% endautoescape %}
 
-  <a href="{{ git_url }}">View on GitHub</a> -
-  SHA1: {{ git_sha1 }}
+    <a href="{{ git_url }}">View on GitHub</a> -
+    SHA1: {{ git_sha1 }}
+  </div>
 {% endblock %}

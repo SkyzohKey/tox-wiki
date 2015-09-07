@@ -5,6 +5,14 @@ import requests, json, markdown, config
 CONFIG = config.get()
 AUTH = "?client_id=%s&client_secret=%s" % (CONFIG['github']['client_id'], CONFIG['github']['client_key'])
 
+def get_categories():
+    url = "https://api.github.com/repos/%s/contents/" % (CONFIG['github']['repository'])
+    url = url + AUTH
+    req = requests.get(url)
+
+    if(req.ok):
+        return json.loads(req.text or req.content)
+
 def category(request, category='.'):
     # GitHub API: https://api.github.com/repos/django/django/contents/(DIR_NAME|.)
     if(category == '.'):
@@ -21,7 +29,8 @@ def category(request, category='.'):
             'git_repo': 'https://github.com/%s' % (CONFIG['github']['repository']),
             'api_url': url,
             'category': category,
-            'Categories': api
+            'Categories': api,
+            'base_categories': get_categories()
         })
 
 
@@ -34,6 +43,7 @@ def page(request, category, page_name):
     if(req.ok):
         api = json.loads(req.text or req.content)
         return render(request, 'wiki_page.html', {
+            'name': api['name'],
             'path': api['path'].replace('.md', ''),
             'category': category,
             'git_path': api['path'],
