@@ -6,6 +6,8 @@
 {% block content %}
   <div style="display:block; margin-top:25px; max-width:500px; overflow:hidden; border:1px dashed black;">
     <div style="background-color:#c7c7c7; padding:5px; text-align:center;">
+      <a href="{% url 'doc:index' %}">Home</a> -
+      <a href="{% url 'doc:categories' category=category %}">Back to {{ category }}</a> -
       Content of {{ git_path }} - {{git_size}} kb
     </div>
     <div style="padding:10px;">
