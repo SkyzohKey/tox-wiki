@@ -34,6 +34,6 @@ Basicaly the config.json file looks like this:
 
 | Key               | Usage                   | Description |
 | :---------------- | :---------------------- | :---------- |
-| github.client_id  | **Required**<br>Used to authentify you. | This is your GitHub app `client_id` |
-| github.client_key | **Required**<br>Used to authentify you. | This is your GitHub app `client_secret` |
-| github.repository | **Required**<br>Used to fetch the wiki files. | **Must** follow the format `USER_NAME/REPOSITORY_NAME` |
+| **Required** github.client_id  | Used to authentify you. | This is your GitHub app `client_id` |
+| **Required** github.client_key | Used to authentify you. | This is your GitHub app `client_secret` |
+| **Required** github.repository | Used to fetch the wiki files. | **Must** follow the format `USER_NAME/REPOSITORY_NAME` |
