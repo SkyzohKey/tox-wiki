@@ -1,0 +1,19 @@
+{% extends 'base.tpl.html' %}
+{% block title %}
+  Wiki - {{ path }}
+{% endblock %}
+
+{% block content %}
+  <div style="display:block; margin-top:25px; max-width:500px; overflow:hidden; border:1px dashed black;">
+    <div style="background-color:#c7c7c7; padding:5px; text-align:center;">
+      Content of {{ git_path }} - {{git_size}} kb
+    </div>
+    <div style="padding:10px;">
+      {% autoescape off %}{{ git_content|linebreaks }}{% endautoescape %}
+    </div>
+    <div style="background-color:#c7c7c7; padding:5px; text-align:center;">
+      <a href="{{ git_url }}">View on GitHub</a> -
+      SHA1: {{ git_sha1 }}
+    </div>
+  </div>
+{% endblock %}

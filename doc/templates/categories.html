@@ -1,0 +1,23 @@
+{% extends 'base.tpl.html' %}
+{% block title %}
+  Wiki - Page
+{% endblock %}
+
+{% block content %}
+  <!--<p>
+    <h3>{{git_path}}</h3>
+    Type: {{git_type}}<br>
+    SHA1: {{git_sha1}}<br>
+    URL: {{git_url}}
+  </p>-->
+
+  <div style="display:block; max-width:500px; overflow:hidden;">
+    {% autoescape off %}
+      {% for data in Categories %}
+        {% if data.type = "dir" %}
+          <p>{{ data.name }} - Size: {{ data.size }}kb</p>
+        {% endif %}
+      {% endfor %}
+    {% endautoescape %}
+  </div>
+{% endblock %}

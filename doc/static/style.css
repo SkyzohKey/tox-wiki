@@ -1,0 +1,16 @@
+/* Quick reset */
+* {
+  padding: 0;
+  margin: 0 auto;
+
+  font-family: Ubuntu;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+p {
+  text-align: justify;
+}
