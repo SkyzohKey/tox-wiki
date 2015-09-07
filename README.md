@@ -1,5 +1,11 @@
 # tox-wiki
 
+## Dependencies
+
+| Package name     | Version   | Comment             |
+|------------------|-----------|---------------------|
+| django           | >=1.8.4   | **Required to run** |
+
 ## Install and run
 To install and run this little software you **must** type the following lines in a terminal.
 
