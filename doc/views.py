@@ -26,10 +26,8 @@ def category(request, category='.'):
 
 
 def page(request, category, page_name):
-    page_name = page_name.replace('.md', '')
-
     # GitHub API: https://api.github.com/repos/django/django/contents/CATEGORY/FILE_NAME.md
-    url = "https://api.github.com/repos/%s/contents/%s/%s.md" % (CONFIG['github']['repository'], category, page_name)
+    url = "https://api.github.com/repos/%s/contents/%s/%s" % (CONFIG['github']['repository'], category, page_name)
     url = url + AUTH
     req = requests.get(url)
 
