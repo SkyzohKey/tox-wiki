@@ -41,7 +41,10 @@ def page(request, category, page_name):
             'git_size': api['size'],
             'git_sha1': api['sha'],
             'git_type': api['type'],
-            'git_content': markdown.markdown(api['content'].decode(api['encoding']))
+            'git_content': markdown.markdown(
+                api['content'].decode(api['encoding']),
+                ['markdown.extensions.extra']
+            )
         })
 
     return render(request, 'page.html')

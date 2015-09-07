@@ -1,15 +1,42 @@
 {% load staticfiles %}
 {% spaceless %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>{% block title %}Wiki{% endblock %}</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css">
-        <link rel="stylesheet" href="{% static 'style.css' %}">
-        <meta charset="utf-8">
-    </head>
-    <body>
-          {% block content %}{% endblock %}
-    </body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{% block title %}Wiki{% endblock %}</title>
+
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="{% url 'doc:index' %}">Home</a></li>
+            <li role="presentation"><a href="{% url 'doc:categories' '.' %}">Categories</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">ToxWiki</h3>
+      </div>
+
+      <div class="jumbotron">
+        {% block content %}{% endblock %}
+      </div>
+
+      <footer class="footer">
+        <p>&copy; ToxWiki 2015</p>
+      </footer>
+    </div>
+  </body>
 </html>
 {% endspaceless %}

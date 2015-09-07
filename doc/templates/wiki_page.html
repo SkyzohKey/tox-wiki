@@ -4,18 +4,12 @@
 {% endblock %}
 
 {% block content %}
-  <div style="display:block; margin:0 auto; max-width:800px; overflow:hidden; border:1px dashed black;">
-    <div style="background-color:#c7c7c7; padding:5px; text-align:center;">
-      <a href="{% url 'doc:index' %}">Home</a> -
-      <a href="{% url 'doc:categories' category=category %}">Back to {{ category }}</a> -
-      Content of {{ git_path }} - {{git_size}} kb
-    </div>
-    <div style="padding:10px;">
-      {% autoescape off %}{{ git_content|linebreaks }}{% endautoescape %}
-    </div>
-    <div style="background-color:#c7c7c7; padding:5px; text-align:center;">
-      <a href="{{ git_url }}">View on GitHub</a> -
-      SHA1: {{ git_sha1 }}
-    </div>
-  </div>
+  <a href="{% url 'doc:index' %}">Home</a> -
+  <a href="{% url 'doc:categories' category=category %}">Back to {{ category }}</a> -
+  Content of {{ git_path }} - {{git_size}} kb
+
+  {% autoescape off %}{{ git_content|linebreaks }}{% endautoescape %}
+
+  <a href="{{ git_url }}">View on GitHub</a> -
+  SHA1: {{ git_sha1 }}
 {% endblock %}

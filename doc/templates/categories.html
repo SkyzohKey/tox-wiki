@@ -4,30 +4,19 @@
 {% endblock %}
 
 {% block content %}
-  <!--<p>
-    <h3>{{git_path}}</h3>
-    Type: {{git_type}}<br>
-    SHA1: {{git_sha1}}<br>
-    URL: {{git_url}}
-  </p>-->
-  <div style="display:block; margin:0 auto; max-width:800px; overflow:hidden; border:1px dashed black;">
-    <div style="background-color:#c7c7c7; padding:5px; text-align:center;">
-      {% if category != '.' %}
-        <a href="{% url 'doc:index' %}">Home</a> -
-      {% endif %}
-      Categories
-    </div>
-    <div style="padding:10px;">
-      {% autoescape off %}
-        {% for data in Categories %}
+  {% if category != '.' %}
+    <a href="{% url 'doc:index' %}">Home</a> -
+  {% endif %}
+  Categories
 
-            <p><a href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a> - Size: {{ data.size }}kb</p>
+  {% autoescape off %}
+    {% for data in Categories %}
+      <p>
+        <a href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a> -
+        Size: {{ data.size }} kb
+      </p>
+    {% endfor %}
+  {% endautoescape %}
 
-        {% endfor %}
-      {% endautoescape %}
-    </div>
-    <div style="background-color:#c7c7c7; padding:5px; text-align:center;">
-      <a href="{{ git_repo }}">View the repository on GitHub</a> - <a href="{{ api_url }}">View the API call</a>
-    </div>
-  </div>
+  <a href="{{ git_repo }}">View the repository on GitHub</a> - <a href="{{ api_url }}">View the API call</a>
 {% endblock %}
