@@ -52,7 +52,7 @@ def page(request, category, page_name):
             'git_sha1': api['sha'],
             'git_type': api['type'],
             'git_content': markdown.markdown(
-                api['content'].decode(api['encoding']),
+                api['content'].decode(api['encoding']).decode('utf-8'),
                 ['markdown.extensions.extra']
             )
         })
