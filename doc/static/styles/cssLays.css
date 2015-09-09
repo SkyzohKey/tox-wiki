@@ -10,12 +10,12 @@
 }
 
 /* Alignements */
-.text-left,
+/*.text-left,
 .text-center,
 .text-right,
 .text-justify {
   display: inline-block !important;
-}
+}*/
 
 /* Left align */
 .left { float: left; }

@@ -33,16 +33,21 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>Page</th>
-                <th class="text-right">Size (<span class="text-bold">kb</span>)</th>
+                <th class="text-left">Page</th>
+                <th class="text-center">Size (<span class="text-bold">kb</span>)</th>
+                <th class="text-right">Actions</th>
               </tr>
             </thead>
             <tbody>
               {% for data in Categories %}
               {% if data.name != '_static' %}
                 <tr>
-                  <td><a class="text-normal" href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a></td>
-                  <td class="text-right">{{ data.size }} kb</td>
+                  <td class="text-left"><a class="text-normal" href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a></td>
+                  <td class="text-center">{{ data.size }} kb</td>
+                  <td class="text-right">
+                    <a class="text-normal" href="{{ git_url }}">View on GitHub</a> -
+                    <a class="text-normal" target="_blank" href="https://github.com/{{ git_repo }}/edit/master/{{ category }}/{{ name }}">Edit on GitHub</a>
+                  </td>
                 </tr>
               {% endif %}
               {% endfor %}

@@ -45,6 +45,7 @@ def category(request, category='.'):
             'last_commit_sha': last_commit_api['sha'][:8],
 
             # Git page related stuff
+            'git_repo': CONFIG['github']['repository'],
             'git_url': api['_links']['html'],
             'git_size': api['size'],
             'git_sha1': api['sha'],
