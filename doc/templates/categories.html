@@ -1,6 +1,10 @@
 {% extends 'base.tpl.html' %}
 {% block title %}
-  Tox Wiki - {{ category }}/
+  {% if category == '.' %}
+    Tox Wiki - Home
+  {% else %}
+    Tox Wiki - {{ category }}/
+  {% endif %}
 {% endblock %}
 
 {% block last_commit_url %}{{ last_commit_url }}{% endblock %}
