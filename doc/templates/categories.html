@@ -40,9 +40,6 @@
             <tbody>
               {% for data in Categories %}
               {% if data.name != '_static' %}
-              {% if data.name == 'qTox.md' %}
-              <tr class="highlight">
-              {% else %}
               <tr>
               {% endif %}
                 <td><a class="text-normal" href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a></td>
