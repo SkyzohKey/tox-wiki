@@ -40,11 +40,10 @@
             <tbody>
               {% for data in Categories %}
               {% if data.name != '_static' %}
-              <tr>
-              {% endif %}
-                <td><a class="text-normal" href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a></td>
-                <td class="text-right">{{ data.size }} kb</td>
-              </tr>
+                <tr>
+                  <td><a class="text-normal" href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a></td>
+                  <td class="text-right">{{ data.size }} kb</td>
+                </tr>
               {% endif %}
               {% endfor %}
             </tbody>
