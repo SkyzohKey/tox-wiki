@@ -62,6 +62,10 @@ def category(request, category='.'):
         response = get_url("https://api.github.com/repos/%s/contents/%s" % (CONFIG['github']['repository'], category))
         api = json.loads(response.text or response.content)
         return render(request, 'categories.html', {
+            # Last commit related stuff
+            'last_commit_url': last_commit_api[0]['html_url'],
+            'last_commit_sha': last_commit_api[0]['sha'][:8],
+
             'git_repo': 'https://github.com/%s' % (CONFIG['github']['repository']),
             'category': category,
             'Categories': api,
