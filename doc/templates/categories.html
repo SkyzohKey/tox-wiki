@@ -19,10 +19,12 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-9">
+      {% if category != '.' %}
       <ol class="breadcrumb">
         <li><a href="{% url 'doc:index' %}">Home</a></li>
         <li class="active"><a href="{% url 'doc:categories' category=category %}">{{ category }}</a></li>
       </ol>
+      {% endif %}
 
       <div class="jumbotron">
         {% if category == '.' %}
