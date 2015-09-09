@@ -3,17 +3,30 @@
   Wiki - {{ path }}
 {% endblock %}
 
+{% block last_commit_url %}{{ last_commit_url }}{% endblock %}
+{% block last_commit_sha %}{{ last_commit_sha }}{% endblock %}
+
 {% block content %}
   <ol class="breadcrumb">
     <li><a href="{% url 'doc:index' %}">Home</a></li>
     <li><a href="{% url 'doc:categories' category=category %}">{{ category }}</a></li>
-    <li class="active">{{ name }} <small>({{git_size}} kb)</small></li>
+    <li class="active">
+        <span class="push-left-10">
+          {{ name }} <small>({{ git_size }} kb)</small>
+        </span>
+        <span class="push-right-10 push-left-10">
+          Last commit:
+          <a href="{{ git_last_commit_url }}" class="tooltip-sha1" data-sha1="{{ git_sha }}">
+            <small>{{ git_last_commit }}</small>
+          </a>
+        </span>
+        <span class="push-right-10">
+          <a href="{{ git_url }}">View on GitHub</a>
+        </span>
+    </li>
   </ol>
 
-  <div class="jumbotron blured">
+  <div class="jumbotron">
     {% autoescape off %}{{ git_content }}{% endautoescape %}
-
-    <a href="{{ git_url }}">View on GitHub</a> -
-    SHA1: {{ git_sha1 }}
   </div>
 {% endblock %}

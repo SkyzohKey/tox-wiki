@@ -4,11 +4,55 @@
 * @license WTFPLv2
 **/
 
+/* Float container */
+.float-container {
+  display: block;
+}
+
 /* Alignements */
+.text-left,
+.text-center,
+.text-right,
+.text-justify {
+  display: inline-block !important;
+}
+
+/* Left align */
+.left { float: left; }
+.left::after {
+  /* Apply a simple clearfix. */
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* Center align */
+.center { margin: auto auto; }
+
+/* Right align */
+.right { float: right; }
+.right::after {
+  /* Apply a simple clearfix. */
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
 .text-left { text-align: left !important; }
 .text-center { text-align: center !important; }
 .text-right { text-align: right !important; }
 .text-justify { text-align: justify !important; }
+.text-normal {
+  text-align: left !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+}
 
 /* Text styles */
 .bold { font-weight: bold !important; }
@@ -16,3 +60,14 @@
 .underline { text-decoration: underline !important; }
 .strike { text-decoration: line-through !important; }
 .shadow { text-shadow: rgba(0, 0, 0, 0.43) 0 0 3px !important; }
+.highlight { background-color: rgba(255, 252, 0, 0.58) !important;}
+
+/* Margins */
+.push-right-10 {
+  padding-left: 10px;
+  border-left: 1px solid #999999;
+}
+.push-left-10 {
+  padding-right: 10px;
+
+}

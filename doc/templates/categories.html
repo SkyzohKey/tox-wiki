@@ -3,6 +3,9 @@
   Wiki - Page
 {% endblock %}
 
+{% block last_commit_url %}{{ last_commit_url }}{% endblock %}
+{% block last_commit_sha %}{{ last_commit_sha }}{% endblock %}
+
 {% block content %}
 <div class="container-fluid">
   <div class="row">
@@ -23,31 +26,30 @@
 
       <div class="jumbotron">
         {% if category == '.' %}
-          <h1 class="text-center">Welcome on the Tox Wiki !</h1>
-          <p class="text-justify">
-            Tox is a secure and distributed <span class="strike">Skype</span> replacement.
-          </p>
-          <p class="text-justify">
-            At its heart it's a client dealing with our core library communicating
-            on our own protocol. All communications are encrypted using the peer
-            audited <code>NaCl</code> crypto library and this encryption can not be
-            turned off.
-          </p>
-          <p class="text-justify">
-            Tox is powered by a distributed network which uses <code>P2P</code>
-            connections for chats between people, and unlike other
-            <span class="strike">Skype</span> replacements, no federated servers,
-            centralized servers, or supernodes are used.
-          </p>
+          {% autoescape off %}{{ git_content }}{% endautoescape %}
         {% else %}
-          {% for data in Categories %}
-            {% if data.name != '_static' %}
-              <p>
-                <a href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a> -
-                Size: {{ data.size }} kb
-              </p>
-            {% endif %}
-          {% endfor %}
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Page</th>
+                <th class="text-right">Size (<span class="text-bold">kb</span>)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for data in Categories %}
+              {% if data.name != '_static' %}
+              {% if data.name == 'qTox.md' %}
+              <tr class="highlight">
+              {% else %}
+              <tr>
+              {% endif %}
+                <td><a class="text-normal" href="{% url 'doc:page' category=category page_name=data.name %}">{{ data.name }}</a></td>
+                <td class="text-right">{{ data.size }} kb</td>
+              </tr>
+              {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
         {% endif %}
       </div>
       </div>

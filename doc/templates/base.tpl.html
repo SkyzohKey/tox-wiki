@@ -47,7 +47,7 @@
                 </div>
               </form>
 
-              <p class="navbar-text navbar-right">Last commit <a href="#" class="navbar-link">c2d57f</a></p>
+              <p class="navbar-text navbar-right">GitHub Last commit <a href="{% block last_commit_url %}{% endblock %}" class="navbar-link">{% block last_commit_sha %}{% endblock %}</a></p>
             </div>
           </div>
         </nav>
@@ -59,6 +59,10 @@
         <p>&copy; ToxWiki 2015</p>
       </footer>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script src="{% static 'scripts/app.js' %}"></script>
   </body>
 </html>
 {% endspaceless %}
