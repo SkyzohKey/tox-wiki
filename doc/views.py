@@ -92,6 +92,7 @@ def page(request, category, page_name=''):
             'name': api['name'],
             'path': api['path'].replace('.md', ''),
             'category': category,
+            'git_repo': CONFIG['github']['repository'],
             'git_path': api['path'],
             'git_url': api['_links']['html'],
             'git_size': api['size'],

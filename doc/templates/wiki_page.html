@@ -20,8 +20,9 @@
             <small>{{ git_last_commit }}</small>
           </a>
         </span>
-        <span class="push-right-10">
-          <a href="{{ git_url }}">View on GitHub</a>
+        <span class="push-right-10 push-left-10">
+          <a href="{{ git_url }}">View on GitHub</a> -
+          <a target="_blank" href="https://github.com/{{ git_repo }}/edit/master/{{ category }}/{{ name }}">Edit on GitHub</a>
         </span>
     </li>
   </ol>
