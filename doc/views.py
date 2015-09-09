@@ -27,11 +27,12 @@ def get_url(url, add_url = '', add_auth=True):
 
 def category(request, category='.'):
     # GitHub API: https://api.github.com/repos/django/django/contents/(DIR_NAME|.)
-    if(category == '.'):
-        ## Get the last commit.
-        last_commit_response = get_url("https://api.github.com/repos/%s/commits" % (CONFIG['github']['repository']), '&per_page=1')
-        last_commit_api = json.loads(last_commit_response.text or last_commit_response.content)
+    
+    ## Get the last commit.
+    last_commit_response = get_url("https://api.github.com/repos/%s/commits" % (CONFIG['github']['repository']), '&per_page=1')
+    last_commit_api = json.loads(last_commit_response.text or last_commit_response.content)
 
+    if(category == '.'):
         ## Get the index page.
         response = get_url("https://api.github.com/repos/%s/contents/Index.md" % (CONFIG['github']['repository']))
         api = json.loads(response.text or response.content)
