@@ -5,9 +5,7 @@
 | Package name     | Version   | Comment             |
 |------------------|-----------|---------------------|
 | django           | >=1.8.4   | **Required to run** |
-|                  |           |                     |
 | python-requests  |           |                     |
-|                  |           |                     |
 | python-markdown  |           |                     |
 
 ## Install and run
